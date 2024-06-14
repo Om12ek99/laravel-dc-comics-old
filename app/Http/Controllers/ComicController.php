@@ -9,4 +9,8 @@ class ComicController extends Controller
 public function index(){
     return view("comics.index");
 }
+public function create(){
+    return view("comics.create");
+}
+
 }
