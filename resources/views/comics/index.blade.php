@@ -1,12 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+@extends('layouts.app')
+
+@section('content')
     <h1>Comics</h1>
-    <div>Index</div>
-</body>
-</html>
+    <a href="{{ route('comics.create') }}">Create New Comic</a>
+    <ul>
+        @foreach ($comics as $comic)
+            <li>
+                <a href="{{ route('comics.show', $comic->id) }}">{{ $comic->title }}</a>
+            </li>
+        @endforeach
+    </ul>
+@endsection
