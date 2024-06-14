@@ -2,33 +2,41 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Comic;
+use Illuminate\Http\Request;
 
 class ComicController extends Controller
 {
-public function index(){
-    return view("comics.index");
-}
-public function create(){
-    return view("comics.create");
-}
+    public function index()
+    {
+        $comics = Comic::all();
+        return view('comics.index', compact('comics'));
+    }
 
-public function store(Request $request)
-{
-    $data = $request->validate([
-        'title' => 'required',
-        'description' => 'nullable',
-        'thumb' => 'nullable|url',
-        'price' => 'required|numeric',
-        'series' => 'required',
-        'sale_date' => 'required|date',
-        'type' => 'required',
-    ]);
+    public function show(Comic $comic)
+    {
+        return view('comics.show', compact('comic'));
+    }
 
-    Comic::create($data);
+    public function create()
+    {
+        return view('comics.create');
+    }
 
-    return redirect()->route('comics.index');
-}
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'thumb' => 'required',
+            'price' => 'required',
+            'series' => 'required',
+            'sale_date' => 'required|date',
+            'type' => 'required',
+        ]);
 
+        Comic::create($validated);
+
+        return redirect()->route('comics.index');
+    }
 }
