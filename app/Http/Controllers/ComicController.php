@@ -14,7 +14,14 @@ public function create(){
 }
 
 public function store(Request $request){
-    dd($request->all("title"));
+    $data = $request->validate([
+        "title"=> "required",
+        "description"=>"required",
+        "price" => "required|decimal",
+        "series"=> "required",
+        "date"=> "required|date",
+        "type"=> "required",
+    ]);
 }
 
 }

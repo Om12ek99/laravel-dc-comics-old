@@ -20,12 +20,12 @@
     </div>
     <!-- description -->
     <div>
-        <label for="title">Inserisci una descrizione</label>
+        <label for="desc">Inserisci una descrizione</label>
         <input type="text"  name="desc" placeholder="descrizione">
     </div>
     <!-- prezzo -->
     <div>
-        <label for="title">Inserisci un prezzo</label>
+        <label for="price">Inserisci un prezzo</label>
         <input type="text"  name="price" placeholder="prezzo"> 
     </div>
         <!-- serie -->
@@ -35,12 +35,12 @@
     </div>
         <!-- data -->
         <div>
-        <label for="title">Inserisci la data di pubblicazione</label>
+        <label for="date">Inserisci la data di pubblicazione</label>
         <input type="date"  name="date" placeholder="data di pubblicazione">
     </div>
         <!-- genere -->
         <div>
-        <label for="title">Inserisci il genere </label>
+        <label for="type">Inserisci il genere </label>
         <input type="text"  name="type" placeholder="genere">
     </div>
     <div>
