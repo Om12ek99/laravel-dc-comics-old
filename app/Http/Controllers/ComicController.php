@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Comic;
 
 class ComicController extends Controller
 {
@@ -13,15 +14,21 @@ public function create(){
     return view("comics.create");
 }
 
-public function store(Request $request){
+public function store(Request $request)
+{
     $data = $request->validate([
-        "title"=> "required",
-        "description"=>"required",
-        "price" => "required|decimal",
-        "series"=> "required",
-        "date"=> "required|date",
-        "type"=> "required",
+        'title' => 'required',
+        'description' => 'nullable',
+        'thumb' => 'nullable|url',
+        'price' => 'required|numeric',
+        'series' => 'required',
+        'sale_date' => 'required|date',
+        'type' => 'required',
     ]);
+
+    Comic::create($data);
+
+    return redirect()->route('comics.index');
 }
 
 }
