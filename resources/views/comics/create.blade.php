@@ -9,7 +9,9 @@
     <h1>crea</h1>
     <form 
     method="post"
-    action="">
+    action="{{route('comics.store')}}">
+    @csrf
+    @method('post')
 
     <!-- title -->
     <div>
@@ -40,6 +42,9 @@
         <div>
         <label for="title">Inserisci il genere </label>
         <input type="text"  name="type" placeholder="genere">
+    </div>
+    <div>
+        <input type="submit" value="salva modifiche">
     </div>
 </form>
 </body>

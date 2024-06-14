@@ -13,4 +13,8 @@ public function create(){
     return view("comics.create");
 }
 
+public function store(Request $request){
+    dd($request->all("title"));
+}
+
 }
