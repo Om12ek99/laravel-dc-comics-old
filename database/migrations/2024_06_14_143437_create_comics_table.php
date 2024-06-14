@@ -9,10 +9,16 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('comics', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('author');
+            $table->text('description')->nullable();
+            $table->string('publisher');
+            $table->date('release_date');
+            $table->decimal('price', 8, 2);
             $table->timestamps();
         });
     }
