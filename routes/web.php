@@ -18,4 +18,4 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/home', [ComicController::class,''])->name('home.index');
+Route::get('/home', [ComicController::class,'index'])->name('home.index');
